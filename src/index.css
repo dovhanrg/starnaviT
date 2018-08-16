@@ -24,7 +24,6 @@
 
 .someControls {
     box-sizing: border-box;
-    /* max-height: 100px; */
     display: flex;
     justify-content: space-evenly;
     padding: 1em 2em;
@@ -61,27 +60,55 @@
     cursor: pointer;
 }
 
+.favorites-turnIn {
+    background-position: -101px -3px;
+}
+
 .imageView {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(6, 1fr), 20px;
+    grid-template-rows: repeat(5, 1fr);
     gap: 1.5em;
 }
 
-.picture {
+.imageWraper {
     width: 100%;
+    height: 100%;
+    background-size: cover;
     cursor: pointer;
-    /* position: relative; */
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    background-repeat: no-repeat;
 }
 
-/* .picture::before {
-    content: '';
-    background-color:red;
+.spanForFavorite {
+    width: 32px;
+    height: 32px;
+    margin: 0.3em;
+    background-repeat: no-repeat;
+    background-color: transparent;
     background-image: url(img/spritesheet.png);
-    position: absolute;
-    width: 10px;
-    height: 10px;
-} */
+    visibility: hidden;
+}
+
+.bgPositionDefault {
+    background-position: -143px -7px;
+}
+.bgPositionOnClick{
+    background-position: -189px -7px;
+    visibility: visible;
+}
+
+.spanForFavorite:hover {
+    background-position: -189px -7px;
+    background-image: url(img/spritesheet.png);
+    cursor: pointer;
+}
+
+.imageWraper:hover .spanForFavorite {
+    visibility: visible;
+}
 
 .filtersBlock .filtersBlock__title {
     display: block;
@@ -125,12 +152,6 @@
     border-radius: 6px;
     border: 1px solid burlywood;
 }
-
-/* .pagination .link.active {
-    background-color: #9231ED;
-    color: white;
-    border-radius: 5px;
-} */
 
 .pagination .link:hover  {
     background-color: #e6d76c;

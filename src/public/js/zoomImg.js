@@ -1,4 +1,6 @@
-import createImg from './createImage';
+'use strict';
+
+import createZoomImage from './createZoomImage';
 
 const zoomImg = e => {
   const bodyHeigth = document.querySelector('body').offsetHeight;
@@ -10,13 +12,16 @@ const zoomImg = e => {
     body.removeChild(isZoomedWrapper);
   }
 
-  if (e.target.className === 'picture') {
-    imgId = e.target.src.split('=')[1];
+  if (e.target.className === 'imageWraper') {
+    const imageWrappers = Array.from(document.querySelectorAll('.imageWraper'));
+    const targetElementSrc = imageWrappers.filter(
+      element => element === e.target
+    )[0].style.backgroundImage;
+    imgId = parseInt(targetElementSrc.split('=')[1]);
     const fullImgWrapper = document.createElement('div');
     fullImgWrapper.classList.add('zoomWrapper');
-    const fullImg = createImg(imgId, bodyHeigth);
+    const fullImg = createZoomImage(imgId, bodyHeigth);
     fullImg.classList.add('zoom');
-    fullImg.classList.remove('picture');
     fullImgWrapper.insertAdjacentElement('afterbegin', fullImg);
     body.insertAdjacentElement('afterbegin', fullImgWrapper);
   }

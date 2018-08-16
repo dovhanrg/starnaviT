@@ -1,10 +1,7 @@
 'use strict';
 
 import createImg from './createImage';
-import getPageNumber from './getPageNumber';
-// import { large, medium, small, getSize } from './sizeFilter';
-
-// console.log(page);
+// import getPageNumber from './getPageNumber';
 
 const loadImagesList = (page = 1) => {
   const imageView = document.querySelector('.imageView');

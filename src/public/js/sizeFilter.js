@@ -6,14 +6,6 @@ export const large = x => x > 1500;
 export const medium = x => x < 1501 && x > 799;
 export const small = x => x < 800;
 
-// const radioInputs = document.querySelectorAll('input[type="radio"]');
-// const hasCheckedInput = Array.from(radioInputs).filter( el => el.checked === true )[0].value;
-
-// const getSize = hasCheckedInput === 'small'
-//     ? small : hasCheckedInput === 'medium'
-//     ? medium : hasCheckedInput === 'large'
-//     ? large : ()=>{return true};
-
 const sizeFilter = (page = 1) => {
   const radioInputs = document.querySelectorAll('input[type="radio"]');
   const hasCheckedInput = Array.from(radioInputs).filter(
@@ -56,7 +48,5 @@ const sizeFilter = (page = 1) => {
     )
     .catch(error => console.log(error));
 };
-
-// sizeFilter(large);
 
 export default sizeFilter;
